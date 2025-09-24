@@ -1,0 +1,17 @@
+name: Java Fibonacci
+on: [push, pull_request]
+jobs:
+  run-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Compile and Run
+        run: |
+          cd program3-java-fibonacci
+          javac Fibonacci.java
+          java Fibonacci
